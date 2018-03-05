@@ -65,10 +65,10 @@ sup { top: -0.4em;font-size: 12px;font-weight: 100; }
 /*calendar*/
 .fc-calendar .fc-row > div > span.fc-date{font-size: 14px;}
 /*validate*/
-/*.n-bottom .n-arrow{display: none;}
-.n-arrow{display: none;}
-.n-red .msg-wrap{padding:0;background-color:transparent;border: none;box-shadow:none;border-radius:0;min-height: 15px;}
-.n-bottom .msg-wrap{margin-top: 1px}*/
+.form-group .n-bottom .n-arrow{display: none;}
+.form-group .n-arrow{display: none;}
+.form-group .n-red .msg-wrap{padding:0;background-color:transparent;border: none;box-shadow:none;border-radius:0;min-height: 15px;}
+.form-group .n-bottom .msg-wrap{margin-top: 1px}
 /*menu*/
 #navbar-collapse-cogs{display:none;float: right;cursor:pointer;background-color: transparent;padding: 0 15px;background-image: none;height: 50px;color: #fff;line-height: 50px;}
 #bjui-header > #bjui-navbar-collapse.open {position: fixed;right: 6px;top: 42px;z-index: 28;}
