@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>bjui-x</title>
+    <link href="./assets/favicon.ico?v==0.03" rel="Shortcut Icon">
+    <!-- bootstrap - css -->
+    <link href="./assets/static/BJUI/themes/css/bootstrap.css" rel="stylesheet">
+    <!-- core - css -->
+    <link href="./assets/static/BJUI/themes/css/style.css" rel="stylesheet">
+    <link href="./assets/static/BJUI/themes/blue/core.css" id="bjui-link-theme" rel="stylesheet">
+    <!-- plug - css -->
+    <link href="./assets/static/BJUI/plugins/kindeditor_4.1.10/themes/default/default.css" rel="stylesheet">
+    <link href="./assets/static/BJUI/plugins/colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+    <link href="./assets/static/BJUI/plugins/niceValidator/jquery.validator.css" rel="stylesheet">
+    <link href="./assets/static/BJUI/plugins/bootstrapSelect/bootstrap-select.css" rel="stylesheet">
+    <link href="./assets/static/BJUI/themes/css/FA/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/bjui-x.css?v=0.13" rel="stylesheet">
+    <!--[if lte IE 9]>
+    <script src="./assets/js/html5shiv.min.js"></script>
+    <script src="./assets/js/respond.min.js"></script>
+    <![endif]-->
+    <!-- jquery -->
+
+    <script src="./assets/js/jquery-1.12.4.min.js"></script>
+    <script src="./assets/static/BJUI/js/jquery.cookie.js"></script>
+    <!--[if lte IE 9]>
+    <script src="./assets/static/BJUI/other/jquery.iframe-transport.js"></script>
+    <![endif]-->
+    <!-- BJUI.all 分模块压缩版 -->
+    <script src="./assets/static/BJUI/js/bjui-all.min.js"></script>
+    <!-- plugins -->
+    <!-- swfupload for uploadify && kindeditor -->
+    <script src="./assets/static/BJUI/plugins/swfupload/swfupload.js"></script>
+    <!-- kindeditor -->
+    <script src="./assets/static/BJUI/plugins/kindeditor_4.1.11/kindeditor-all-min.js"></script>
+    <!-- colorpicker -->
+    <script src="./assets/static/BJUI/plugins/colorpicker/js/bootstrap-colorpicker.min.js"></script>
+    <!-- ztree -->
+    <script src="./assets/static/BJUI/plugins/ztree/jquery.ztree.all-3.5.js"></script>
+    <!-- nice validate -->
+    <script src="./assets/static/BJUI/plugins/niceValidator/jquery.validator.js"></script>
+    <script src="./assets/static/BJUI/plugins/niceValidator/jquery.validator.themes.js"></script>
+    <!-- bootstrap plugins -->
+    <script src="./assets/static/BJUI/plugins/bootstrap.min.js"></script>
+    <script src="./assets/static/BJUI/plugins/bootstrapSelect/bootstrap-select.min.js"></script>
+    <script src="./assets/static/BJUI/plugins/bootstrapSelect/defaults-zh_CN.min.js"></script>
+    <!-- icheck -->
+    <script src="./assets/static/BJUI/plugins/icheck/icheck.min.js"></script>
+    <!-- dragsort -->
+    <script src="./assets/static/BJUI/plugins/dragsort/jquery.dragsort-0.5.1.min.js"></script>
+    <!-- ECharts -->
+    <script src="./assets/static/BJUI/plugins/echarts3/echarts.min.js"></script>
+    <!-- other plugins -->
+    <script src="./assets/static/BJUI/plugins/other/jquery.autosize.js"></script>
+    <link href="./assets/static/BJUI/plugins/uploadify/css/uploadify.css" rel="stylesheet">
+    <script src="./assets/static/BJUI/plugins/uploadify/scripts/jquery.uploadify.min.js"></script>
+    <script src="./assets/static/BJUI/plugins/download/jquery.fileDownload.js"></script>
+
+    <script type="text/javascript" src="./assets/js/bjui-x.js"></script>
+
+    <!-- init -->
+    <script type="text/javascript">
+        $(function() {
+            BJUI.init({
+                JSPATH       : './assets/static/BJUI/',         //[可选]框架路径
+                PLUGINPATH   : './assets/static/BJUI/plugins/', //[可选]插件路径
+                loginInfo    : {url:"./login.php", title:'登录', width:530, height:266}, // 会话超时后弹出登录对话框
+                statusCode   : {ok:200, error:300, timeout:301 ,warn : 302, redirect : 307}, //[可选]
+                ajaxTimeout  : 50000, //[可选]全局Ajax请求超时时间(毫秒)
+                pageInfo     : {total:'total', pageCurrent:'pageCurrent', pageSize:'pageSize', orderField:'orderField', orderDirection:'orderDirection'}, //[可选]分页参数
+                alertMsg     : {displayPosition:'topcenter', displayMode:'slide', alertTimeout:3000}, //[可选]信息提示的显示位置，显隐方式，及[info/correct]方式时自动关闭延时(毫秒)
+                keys         : {statusCode:'statusCode', message:'message'}, //[可选]
+                ui           : {
+                    windowWidth      : 0,    //框架可视宽度，0=100%宽，> 600为则居中显示
+                    showSlidebar     : true, //[可选]左侧导航栏锁定/隐藏
+                    clientPaging     : true, //[可选]是否在客户端响应分页及排序参数
+                    overwriteHomeTab : false, //[可选]当打开一个未定义id的navtab时，是否可以覆盖主navtab(我的主页)
+                    hideWidth : 600 //拓展项，小屏适配宽度，默认600，影响左侧菜单等
+                },
+                debug        : false,    // [可选]调试模式 [true|false，默认false]
+                theme        : 'sky' // 若有Cookie['bjui_theme'],优先选择Cookie['bjui_theme']。皮肤[五种皮肤:default, orange, purple, blue, red, green]
+            })
+
+            // main - menu
+            $(document).on('click', '#bjui-accordionmenu a', function(e) {
+                e.preventDefault();
+                var $a = $(this), $li = $a.parent(),$a_href = $a.attr('href');
+                if($li.hasClass('menu-items-tree')){
+                    $li.toggleClass('open').find('ul.menu-items').slideToggle();
+                    var $open = $li.siblings('.menu-items-tree');
+                    if($open.hasClass('open')){
+                        $open.removeClass('open').find('ul.menu-items').slideUp();
+                    }
+                    return
+                }
+                if($a_href == '' || $a_href == '#' || $a_href == 'javascript:;') return
+                var options = $a.data('options').toObj()
+                //自定义page页面标签名
+                if($li.parent().hasClass('menu-items')){
+                    var $p_title = $li.parent().prevAll('a').first().html()
+                }
+                var onClose = function() {
+                    $li.removeClass('active')
+                }
+                var onSwitch = function() {
+                    $('#bjui-accordionmenu').find('ul > li').removeClass('switch')
+                    $li.addClass('switch')
+                }
+                $li.addClass('active')
+
+                if (options) {
+                    options.p_title = $p_title
+                    options.url      = $a.attr('href')
+                    options.onClose  = onClose
+                    options.onSwitch = onSwitch
+                    if (!options.title) options.title = $a.text()
+
+                    if (!options.target)
+                        $a.navtab(options)
+                    else
+                        $a.dialog(options)
+                    if($('#menu_lock').hasClass('sm-collapse')){
+                        $(this).slidebar('unlock')
+                    }
+                }
+
+                e.preventDefault()
+            })
+
+        })
+        //注：此处对点击主页tab进行了修改，修改内容为bjui-navtab.js 第54行，增加了点击刷新
+        //切换并刷新主面板
+        function refresh_mainTab(obj){
+            $(obj).navtab('switchTab', 'main').navtab('refresh','main');
+            if($('#menu_lock').hasClass('sm-collapse')){
+                $(this).slidebar('unlock')
+            }
+        }
+
+    </script>
+
+
+    <link type="text/css" rel="stylesheet" href="./assets/static/syntaxhighlighter/syntaxhighlighter-2.1.382/styles/shCore.css"/>
+    <link type="text/css" rel="stylesheet" href="./assets/static/syntaxhighlighter/syntaxhighlighter-2.1.382/styles/shThemeEclipse.css"/>
+    <script type="text/javascript" src="./assets/static/syntaxhighlighter/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            SyntaxHighlighter.config.clipboardSwf = './assets/static/syntaxhighlighter/syntaxhighlighter-2.1.382/scripts/clipboard.swf'
+            $(document).on(BJUI.eventType.initUI, function(e) {
+                SyntaxHighlighter.highlight();
+            })
+        })
+    </script>
+</head>
+<body>
+<div id="bjui-window">
+    <div id="bjui-container">
+        <div id="bjui-leftside">
+            <div id="bjui-sidebar-s">
+                <div class="collapse"></div>
+            </div>
+            <div id="bjui-sidebar">
+                <div class="toggleCollapse h4">
+                    <span class="logo-lg">
+                        <div style="font-size: 28px;text-align: center;line-height: 1.8">BJUI-x</div>
+                        <!-- <img src="./assets/img/logo-big.png" class="img-responsive center-block"> -->
+                    </span>
+                    <span class="logo-min">
+                        <div style="font-size: 28px;text-align: center;line-height: 1.8">B</div>
+                        <!-- <img src="./assets/img/logo-min.png" class="img-responsive center-block"> -->
+                    </span>
+                </div>
+                <div class="panel-group panel-main" data-toggle="accordion" id="bjui-accordionmenu" data-heightbox="#bjui-sidebar" data-offsety="26">
+                    <ul class="sidebar-menu">
+                        <li onclick="refresh_mainTab(this)"><a href="#"> <i class="fa fa-th-large"></i> <span>主面板</span></a></li>
+
+                        <li><a href="bjui-doc/form-button.html" data-reload="true" data-autorefresh="true" data-reload="true" data-autorefresh="true" data-options="{id:'form-button', fresh:true, faicon:'hand-o-up', fresh:true}"><i class="fa fa-home"></i> <span>单独目录</span></a></li>
+
+                        <li class="menu-items-tree">
+                            <a href="#">
+                                    <i class="fa fa-check-square-o"></i> <span>表单元素</span>
+                            </a><span class="b"><i class="fa fa-angle-down"></i></span>
+                            <ul class="menu-items">
+                                <li><a href="bjui-doc/form-button.html" data-reload="true" data-autorefresh="true" data-reload="true" data-autorefresh="true" data-options="{id:'form-button', fresh:true, faicon:'hand-o-up'}"><i class="fa fa-circle-o"></i>按钮</a></li>    
+                                <li><a href="bjui-doc/form-input.html" data-reload="true" data-autorefresh="true" data-options="{id:'form-input', fresh:true, faicon:'terminal'}"><i class="fa fa-circle-o"></i>文本框</a></li>
+                                <li><a href="bjui-doc/form-select.html" data-reload="true" data-autorefresh="true" data-options="{id:'form-select', fresh:true, faicon:'caret-square-o-down', fresh:true}"><i class="fa fa-circle-o"></i>下拉选择框</a></li>
+                                <li><a href="bjui-doc/form-input.html" data-reload="true" data-autorefresh="true" data-options="{id:'form-input', fresh:true, faicon:'terminal'}"><i class="fa fa-circle-o"></i>文本框</a></li>
+                                <li><a href="bjui-doc/form-select.html" data-reload="true" data-autorefresh="true" data-options="{id:'form-select', fresh:true, faicon:'caret-square-o-down'}"><i class="fa fa-circle-o"></i>下拉选择框</a></li>
+                                <li><a href="bjui-doc/form-checkbox.html" data-reload="true" data-autorefresh="true" data-options="{id:'form-checkbox', fresh:true, faicon:'check-square-o'}"><i class="fa fa-circle-o"></i>复选、单选框</a></li>
+                                <li><a href="bjui-doc/form.html" data-reload="true" data-autorefresh="true" data-options="{id:'form-demo', fresh:true, faicon:'th-large'}"><i class="fa fa-circle-o"></i>表单示例</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="menu-items-tree">
+                            <a href="#">
+                                    <i class="fa fa-table"></i> <span>表格</span>
+                            </a><span class="b"><i class="fa fa-angle-down"></i></span>
+                            <ul class="menu-items">
+                                <li><a href="bjui-doc/table.html" data-reload="true" data-autorefresh="true" data-options="{id:'table', fresh:true, faicon:'table'}"><i class="fa fa-circle-o"></i>普通表格</a></li>
+                                <li><a href="bjui-doc/table-fixed.html" data-reload="true" data-autorefresh="true" data-options="{id:'table-fixed', fresh:true, faicon:'list-alt'}"><i class="fa fa-circle-o"></i>固定表头表格</a></li>
+                                <li><a href="bjui-doc/table-edit.html" data-reload="true" data-autorefresh="true" data-options="{id:'table-edit', fresh:true, faicon:'indent'}"><i class="fa fa-circle-o"></i>可编辑表格</a></li>
+                            </ul>
+                        </li>
+
+                         <li class="menu-items-tree">
+                            <a href="#">
+                                    <i class="fa fa-plane"></i> <span>弹出窗口</span>
+                            </a><span class="b"><i class="fa fa-angle-down"></i></span>
+                            <ul class="menu-items">
+                                 <li><a href="bjui-doc/dialog.html" data-reload="true" data-autorefresh="true" data-options="{id:'dialog', fresh:true, faicon:'plane'}"><i class="fa fa-circle-o"></i>弹出窗口</a></li>
+                                <li><a href="bjui-doc/alert.html" data-reload="true" data-autorefresh="true" data-options="{id:'alert', fresh:true, faicon:'info-circle'}"><i class="fa fa-circle-o"></i>信息提示</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="menu-items-tree">
+                            <a href="#">
+                                    <i class="fa fa-coffee"></i> <span>框架组件</span>
+                            </a><span class="b"><i class="fa fa-angle-down"></i></span>
+                            <ul class="menu-items">
+                                 <li><a href="bjui-doc/tabs.html" data-reload="true" data-autorefresh="true" data-options="{id:'tabs', fresh:true, faicon:'columns'}"><i class="fa fa-circle-o"></i>选项卡</a></li>
+                            </ul>
+                        </li>
+
+
+                         <li class="menu-items-tree">
+                            <a href="#">
+                                    <i class="fa fa-bug"></i> <span>其他插件</span>
+                            </a><span class="b"><i class="fa fa-angle-down"></i></span>
+                            <ul class="menu-items">
+                                 <li><a href="bjui-doc/ztree.html" data-reload="true" data-autorefresh="true" data-options="{id:'ztree', fresh:true, faicon:'tree'}"><i class="fa fa-circle-o"></i>zTree</a></li>
+                                <li><a href="bjui-doc/ztree-select.html" data-reload="true" data-autorefresh="true" data-options="{id:'ztree-select', fresh:true, faicon:'caret-square-o-down'}"><i class="fa fa-circle-o"></i>zTree下拉选择</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-items-tree">
+                            <a href="#">
+                                    <i class="fa fa-database"></i> <span>综合应用</span>
+                            </a><span class="b"><i class="fa fa-angle-down"></i></span>
+                            <ul class="menu-items">
+                                  <li><a href="bjui-doc/table-layout.html" data-reload="true" data-autorefresh="true" data-options="{id:'table-layout', fresh:true, faicon:'refresh'}"><i class="fa fa-circle-o"></i>局部刷新1</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="menu-items-tree">
+                            <a href="#">
+                                    <i class="fa fa-star-o"></i> <span>框架介绍-在线文档</span>
+                            </a><span class="b"><i class="fa fa-angle-down"></i></span>
+                            <ul class="menu-items">
+                                  <li><a href="bjui-doc/doc/base/filelist.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-file', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>文件详解</a></li>
+                                <li><a href="bjui-doc/doc/base/structure.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-structure', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>页面结构</a></li>
+                                <li><a href="bjui-doc/doc/base/init.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-init', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>框架初始化</a></li>
+                                <li><a href="bjui-doc/doc/base/hnav.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-hnav', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>横向导航菜单</a></li>
+                                <li><a href="bjui-doc/doc/base/navtab.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-navtab', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>标签工作区(navtab)</a></li>
+                                <li><a href="bjui-doc/doc/base/dialog.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-dialog', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>弹窗工作区(dialog)</a></li>
+                                <li><a href="bjui-doc/doc/base/idname.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-idname', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>元素ID命名规范</a></li>
+                                <li><a href="bjui-doc/doc/base/data.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-data', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>data属性</a></li>
+                                <li><a href="bjui-doc/doc/base/api.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-api', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>jQuery API调用</a></li>
+                                <li><a href="bjui-doc/doc/base/event.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-event', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>事件</a></li>
+                                <li><a href="bjui-doc/doc/base/url.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-url', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>URL动态赋值</a></li>
+                                <li><a href="bjui-doc/doc/theme/color.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-theme', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>颜色值</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="menu-items-tree">
+                            <a href="#">
+                                    <i class="fa fa-th"></i> <span>框架组件-在线文档</span>
+                            </a><span class="b"><i class="fa fa-angle-down"></i></span>
+                            <ul class="menu-items">
+                                <li><a href="bjui-doc/doc/navtab/navtab.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-navtab', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>标签navtab</a></li>
+                                <li><a href="bjui-doc/doc/navtab/navtab-op.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-navtab', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>navtab参数</a></li>
+                                <li><a href="bjui-doc/doc/dialog/dialog.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-dialog', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>弹窗dialog</a></li>
+                                <li><a href="bjui-doc/doc/dialog/dialog-op.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-dialog', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>dialog参数</a></li>
+                                <li><a href="bjui-doc/doc/alertmsg/alertmsg.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-alertmsg', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>信息提示alertmsg</a></li>
+                                <li><a href="bjui-doc/doc/form/datepicker.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-datepicker', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>日期选择器</a></li>
+                                <li><a href="bjui-doc/doc/form/spinner.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-spinner', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>微调器</a></li>
+                                <li><a href="bjui-doc/doc/form/lookup.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-lookup', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>查找带回</a></li>
+                                <li><a href="bjui-doc/doc/form/tags.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-tags', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>自动完成标签</a></li>
+                                <li><a href="bjui-doc/doc/form/upload.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-upload', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>Ajax上传组件</a></li>
+                                <li><a href="bjui-doc/doc/other/contextmenu.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-contextmenu', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>右键菜单</a></li>
+                            </ul>
+                        </li>
+
+                         <li class="menu-items-tree">
+                            <a href="#">
+                                    <i class="fa fa-spinner"></i> <span>Ajax-在线文档</span>
+                            </a><span class="b"><i class="fa fa-angle-down"></i></span>
+                            <ul class="menu-items">
+                               <li><a href="bjui-doc/doc/ajax/callback.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-callback', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>回调函数</a></li>
+                                <li><a href="bjui-doc/doc/ajax/form.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-form-submit', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>提交表单</a></li>
+                                <li><a href="bjui-doc/doc/ajax/search.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-search', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>搜索表单</a></li>
+                                <li><a href="bjui-doc/doc/ajax/load.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-load', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>加载(局部刷新)</a></li>
+                                <li><a href="bjui-doc/doc/ajax/action.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-action', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>执行动作</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="menu-items-tree">
+                            <a href="#">
+                                    <i class="fa fa-table"></i> <span>表格相关-在线文档</span>
+                            </a><span class="b"><i class="fa fa-angle-down"></i></span>
+                            <ul class="menu-items">
+                                <li><a href="bjui-doc/doc/table/style.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-table-style', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>表格样式</a></li>
+                                <li><a href="bjui-doc/doc/table/order.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-table-order', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>字段排序</a></li>
+                                <li><a href="bjui-doc/doc/table/paging.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-table-paging', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>分页组件</a></li>
+                                <li><a href="bjui-doc/doc/table/selected.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-table-selected', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>行选中操作</a></li>
+                                <li><a href="bjui-doc/doc/table/fixed.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-table-fixed', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>固定表头</a></li>
+                                <li><a href="bjui-doc/doc/table/edit.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-table-edit', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>可编辑表格</a></li>
+                            </ul>
+                        </li>
+
+
+                         <li class="menu-items-tree">
+                            <a href="#">
+                                    <i class="fa fa-bug"></i> <span>其他插件-在线文档</span>
+                            </a><span class="b"><i class="fa fa-angle-down"></i></span>
+                            <ul class="menu-items">
+                                <li><a href="bjui-doc/doc/plugin/ztree.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-ztree', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>zTree</a></li>
+                                <li><a href="bjui-doc/doc/plugin/checkbox.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-icheck', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>复选/单选</a></li>
+                                <li><a href="bjui-doc/doc/plugin/select.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-selectpicker', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>下拉选择框</a></li>
+                                <li><a href="bjui-doc/doc/plugin/validate.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-nicevalidator', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>表单验证</a></li>
+                                <li><a href="bjui-doc/doc/plugin/kindeditor.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-kindeditor', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>KindEditor</a></li>
+                                <li><a href="bjui-doc/doc/plugin/ajaxdownload.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-ajaxdownload', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>Ajax Download</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="window-shadow">
+            <div class="catalog-tip" id="catalog-tip">
+                <p class="catalog-tip-txt">轻触这里</p>
+                <p class="catalog-tip-txt">关闭目录</p>
+                <i class="fa fa-hand-pointer-o layout-icons_hand" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div id="bjui-navtab" class="tabsPage">
+            <header id="bjui-header">
+                <a href="#" class="sidebar-toggle" role="button" id="menu_lock">
+                    <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                </a>
+                <nav id="bjui-navbar-collapse">
+                    <ul class="bjui-navbar-right">
+                        <li><a href="bjui-doc/javascript:;">用户：<span id="username__gangbao_7728"></span></a></li>
+                        <li><a href="bjui-doc/#" data-toggle="dialog" data-id="message" data-url="bank.php" data-height="500" data-width="900" data-title="消息">预警信息 <span class="badge" id="message-count">0</span></a></li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">我的账户 <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="bjui-doc/#" data-url="bank.php" data-toggle="dialog" data-id="changepwd_page" data-mask="true" data-width="600" data-height="300">&nbsp;<span class="glyphicon glyphicon-lock"></span> 修改密码&nbsp;</a></li>
+                                <li><a href="bjui-doc/#">&nbsp;<span class="glyphicon glyphicon-user"></span> 我的资料</a></li>
+                                <li class="divider"></li>
+                                <li><a href="bjui-doc/#" onclick="logout()" class="red">&nbsp;<span class="glyphicon glyphicon-off"></span> 注销登录</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <i id="navbar-collapse-cogs" class="fa fa-cogs" aria-hidden="true"></i>
+            </header>
+            <div class="tabsPageHeader">
+                <div class="tabsPageHeaderContent">
+                    <ul class="navtab-tab nav nav-tabs">
+                        <li data-url="./main.html"><a href="javascript:;"><span><i class="fa fa-home"></i> #maintab#</span></a></li>
+                    </ul>
+                </div>
+                <div class="tabsLeft"><i class="fa fa-angle-double-left"></i></div>
+                <div class="tabsRight"><i class="fa fa-angle-double-right"></i></div>
+                <div class="tabsMore"><i class="fa fa-angle-double-down"></i></div>
+            </div>
+            <ul class="tabsMoreList">
+                <li><a href="bjui-doc/javascript:;">#maintab#</a></li>
+            </ul>
+            <div class="navtab-panel tabsPageContent" style="width:100%">
+                <div class="navtabPage unitBox">
+                    <div class="bjui-pageContent" style="background:#FFF;padding:0 10px;">
+                        Loading...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="bjui-footer">Copyright &copy; 2016 - 2017</footer>
+</div>
+</body>
+</html>

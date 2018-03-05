@@ -1,0 +1,422 @@
+.gangbao {
+    width: 100%;
+    max-width: 350px;
+    margin: 10px auto 0 auto;
+}
+
+
+.bg-box1 [class^="col-"],.bg-box [class^="col-"]{
+    min-height: 18px;
+}
+.gb-color {
+    background-color: #e8eef7;
+}
+.gb-top {
+    margin: 0 auto;
+    height: 20px;
+    width: 70%;
+    text-align: center;
+    border:1px solid #333;
+    border-radius: 10px;
+}
+
+.gb-main {
+    margin: 0 auto;
+    width: 60%;
+    height: 100px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 36px;
+    border: 1px solid #333;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 20;
+    position: relative;
+}
+
+.index .iconfont {
+    font-size: 16px;
+}
+.iconfont {
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.gb-line {
+    width: 100%;
+    position: relative;
+    top: 10px;
+    z-index: 2;
+}
+.gb-line-left {
+    float: left;
+    width: 10%;
+    height: 30px;
+    border:1px solid #333;
+}
+.gb-line-right {
+    float: right;
+    width: 10%;
+    height: 30px;
+    border:1px solid #333;
+}
+.gb-line-center {
+    float: left;
+    width: 80%;
+    margin: 5px 0;
+    height: 20px;
+    border:1px solid #333;
+    border-left: none;
+    border-right: none;
+}
+
+/*  长方形方块css   */
+.gb-block {
+    margin: 30px auto 0 auto;
+    width: 90%;
+    height: 100px;
+    border: 1px solid #333;
+    padding: 10px 0;
+    overflow: hidden;
+}
+.gb-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.gb-block ul li {
+    float: left;
+    list-style: none;
+    margin: 0 6px 6px 8px;
+}
+.gb-block-round {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #333;
+    border-radius: 16px;
+}
+.gb-color-green {background: #00b050;}
+.gb-color-yellow {background: #ffc000;}
+.gb-color-red {background: #ff0000;}
+.gb-color-zi {background: #7030a0;}
+
+.tip {
+    /*color: #333;*/
+}
+.tip span {
+    display: block;
+}
+
+.gb-tag {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 20px;
+}
+.gb-tag ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.gb-tag ul li {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    list-style: none;
+    text-align: left;
+    font-size: 13px;
+    overflow: hidden;
+    padding-left: 10px;
+}
+.gb-tag .gb-block-round {
+    display: inline-block;
+}
+
+.gb-yuan-block {
+    border-radius: 50%;
+    margin: 0 auto;
+    width: 140px;
+    height: 140px;
+}
+.gb-yuan {
+    margin: 0 auto;
+    width: 140px;
+    height: 140px;
+    border: 1px solid #333;
+    overflow: hidden;
+    border-radius: 50%;
+    padding: 30px 40px;
+}
+
+.gb-area {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+.area-1 {
+    left: 0;
+    top: 0;
+}
+.area-2 {
+    left: 40px;
+    top: -20px;
+}
+.area-3 {
+    left: -20px;
+    top: -10px;
+}
+.area-4 {
+    left: 65px;
+    top: -35px;
+}
+.area-5 {
+    left: -10px;
+    top: -20px;
+}
+.area-6 {
+    left: 20px;
+    top: -30px;
+}
+.area-7 {
+    left: 45px;
+    top: -50px;
+}
+.area-8 {
+    left: 60px;
+    top: -90px;
+}
+
+.gb-table {
+    width: 90%;
+    margin: 0 auto;
+}
+.gb-table .table-bordered, .gb-table .table-bordered > tbody > tr > th, .gb-table .table-bordered > tbody > tr > td {
+    border: 1px solid #ffffff;
+}
+.gb-table .table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #bbe0e3;
+}
+.gb-table .table-striped > tbody > tr:nth-of-type(even) {
+    background-color: #e7f3f4;
+}
+.gb-table .table-striped > tbody > tr {
+    margin-bottom: 2px;
+}
+.gb-table a {color: #333; text-decoration: none}
+
+.gb-record {
+    width: 95%;
+    margin: 0 auto;
+    border: 1px solid #333;
+    background: #bbe0e3;
+    color: #000;
+    padding: 30px 10px;
+    border-radius: 20px;
+    line-height: 24px;
+}
+.gb-record span {display: block;}
+.submit {margin-top: 50px;}
+
+.width150 {
+    width: 200px;
+}
+.marginTop50 {
+    margin-top: 50px;
+}
+.gb-fang {
+    margin: 0 auto;
+    width: 100%;
+    height: 140px;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+.float {float: left;}
+.note {
+    float: left;
+    margin-left: 4px;
+    font-size: 12px;
+    width: 2px;
+    display: inline-block
+}
+.float-top {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+}
+.float-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 25px;
+}
+.wd-note {
+    width: 100%;
+    display: block;
+    text-align: left;
+    font-size: 10px;
+}
+.wd {
+    margin-top: 10px;
+}
+
+
+
+.run {
+    background: #fff;
+    padding: 4px 4px 20px 4px;
+}
+.color-11 {
+    /*background: #646ced;*/
+    background: transparent;
+}
+
+.color-12 {
+    /*background: #3437c0;*/
+    background: transparent;
+}
+
+.border-left-comm .color-none {
+    color: #f2f2f2;
+    background: #F2F2F2;
+}
+
+.run-title {
+    font-size: 12px;
+    line-height: 26px;
+    padding-left: 6px;
+}
+
+.run .col-md-3, .run .col-sm-3, .run .col-xs-3 {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 6px;
+}
+
+.run-shuoming {
+    margin-top: 50px;
+
+}
+.icon-cross, .run-shuoming .icon-cross {
+    color: #646ced;
+
+}
+
+.icon-shuxian {
+    color: #838383;
+}
+
+.border-left-comm {
+    border-left: 3px dashed #838383;
+}
+
+.border-bottom-comm {
+    width: 100%;
+    /*height: 4px;*/
+    height: 1px;
+    border-bottom: 2px dotted #838383;
+    /*background: #838383;*/
+    display: block;
+    font-size: 12px;
+}
+
+.paddingLeft4 {
+    padding-left: 20px;
+}
+.font-12 {
+    /*font-size: 12px;*/
+}
+.index .iconfont {
+    font-size: 16px;
+}
+.index .badge {
+    padding: 4px 4px;
+}
+.weizhi {
+    background: #333;
+    color: #fff;
+    margin: 0 auto;
+    padding: 0 4px;
+    font-size: 12px;
+}
+.icon-dingwei {
+    color: #ff0000;
+}
+.padding-no .col-md-3, .padding-no .col-sm-3, .padding-no .col-xs-3 {
+    padding-left: 0;
+    padding-right: 0;
+}
+.run-shuoming .col-md-3, .run-shuoming .col-sm-3, .run-shuoming .col-xs-3 {
+    padding-left: 0;
+    padding-right: 0;
+}
+.width16 {
+    width: 16%;
+}
+.width84 {
+    width: 84%;
+}
+.width22 {
+    width: 22%;
+}
+.width34 {
+    width: 34%;
+}
+.code {
+    position: absolute;
+    right: 2px;
+    top: -20px;
+}
+.first {
+    top: 30px;
+}
+
+.color-red {
+    background: #ff0000;
+}
+.color-orange {
+    background: #fc5c1e;
+}
+.bg-box1 i,.bg-box i {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+}
+
+
+.bg-img {
+    height: 63px;
+    width: 63px;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    background: url('../img/gb.png') no-repeat;
+    background-size: 100% 100%;
+    line-height: 90px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.bg-img1 {
+    height: 250px;
+    width: 250px;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    background: url('../img/gb.png') no-repeat;
+    background-size: 100% 100%;
+    line-height: 340px;
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+}
+.bg-img .badge {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.bg-img1 .badge {
+    font-size: 24px;
+}
