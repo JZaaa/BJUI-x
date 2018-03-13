@@ -1,6 +1,6 @@
 /*********************************
  * Themes, rules, and i18n support
- * Locale: English
+ * Locale: Chinese; 中文; TW (Taiwan)
  *********************************/
 (function(factory) {
     typeof module === "object" && module.exports ? module.exports = factory( require( "jquery" ) ) :
@@ -18,66 +18,66 @@
 
         // Custom rules
         rules: {
-            digits: [/^\d+$/, "Please enter only digits."]
-            ,letters: [/^[a-z]+$/i, "Please enter only letters."]
-            ,date: [/^\d{4}-\d{2}-\d{2}$/, "Please enter a valid date, format: yyyy-mm-dd"]
-            ,time: [/^([01]\d|2[0-3])(:[0-5]\d){1,2}$/, "Please enter a valid time, between 00:00 and 23:59"]
-            ,email: [/^[\w\+\-]+(\.[\w\+\-]+)*@[a-z\d\-]+(\.[a-z\d\-]+)*\.([a-z]{2,4})$/i, "Please enter a valid email address."]
-            ,url: [/^(https?|s?ftp):\/\/\S+$/i, "Please enter a valid URL."]
+            digits: [/^\d+$/, "請填寫數字"]
+            ,letters: [/^[a-z]+$/i, "請填寫字母"]
+            ,date: [/^\d{4}-\d{2}-\d{2}$/, "請填寫有效的日期，格式:yyyy-mm-dd"]
+            ,time: [/^([01]\d|2[0-3])(:[0-5]\d){1,2}$/, "請填寫有效的時間，00:00到23:59之間"]
+            ,email: [/^[\w\+\-]+(\.[\w\+\-]+)*@[a-z\d\-]+(\.[a-z\d\-]+)*\.([a-z]{2,4})$/i, "請填寫有效的電郵"]
+            ,url: [/^(https?|s?ftp):\/\/\S+$/i, "請填寫有效的網址"]
             ,accept: function (element, params){
                 if (!params) return true;
                 var ext = params[0],
                     value = $(element).val();
                 return (ext === '*') ||
                        (new RegExp(".(?:" + ext + ")$", "i")).test(value) ||
-                       this.renderMsg("Only accept {1} file extension.", ext.replace(/\|/g, ', '));
+                       this.renderMsg("只接受{1}後綴的文件", ext.replace(/\|/g, ','));
             }
             
         },
 
         // Default error messages
         messages: {
-            0: "This field",
-            fallback: "{0} is not valid.",
-            loading: "Validating...",
-            error: "Network Error.",
-            timeout: "Request timed out.",
-            required: "{0} is required.",
-            remote: "Please try another name.",
+            0: "此處",
+            fallback: "{0}格式不正確",
+            loading: "正在驗證...",
+            error: "網絡異常",
+            timeout: "請求超時",
+            required: "{0}不能為空",
+            remote: "{0}已被使用",
             integer: {
-                '*': "Please enter an integer.",
-                '+': "Please enter a positive integer.",
-                '+0': "Please enter a positive integer or 0.",
-                '-': "Please enter a negative integer.",
-                '-0': "Please enter a negative integer or 0."
+                '*': "請填寫整數",
+                '+': "請填寫正整數",
+                '+0': "請填寫正整數或0",
+                '-': "請填寫負整數",
+                '-0': "請填寫負整數或0"
             },
             match: {
-                eq: "{0} must be equal to {1}.",
-                neq: "{0} must be not equal to {1}.",
-                lt: "{0} must be less than {1}.",
-                gt: "{0} must be greater than {1}.",
-                lte: "{0} must be less than or equal to {1}.",
-                gte: "{0} must be greater than or equal to {1}."
+                eq: "{0}與{1}不一致",
+                neq: "{0}與{1}不能相同",
+                lt: "{0}必須小於{1}",
+                gt: "{0}必須大於{1}",
+                lte: "{0}不能大於{1}",
+                gte: "{0}不能小於{1}"
             },
             range: {
-                rg: "Please enter a number between {1} and {2}.",
-                gte: "Please enter a number greater than or equal to {1}.",
-                lte: "Please enter a number less than or equal to {1}.",
-                gtlt: "Please fill in the number of {1} to {2}.",
-                gt: "Please enter a number greater than {1}.",
-                lt: "Please enter a number less than {1}."
+                rg: "請填寫{1}到{2}的數",
+                gte: "請填寫不小於{1}的數",
+                lte: "請填寫最大{1}的數",
+                gtlt: "請填寫{1}到{2}之間的數",
+                gt: "請填寫大於{1}的數",
+                lt: "請填寫小於{1}的數"
             },
             checked: {
-                eq: "Please check {1} items.",
-                rg: "Please check between {1} and {2} items.",
-                gte: "Please check at least {1} items.",
-                lte: "Please check no more than {1} items."
+                eq: "請選擇{1}項",
+                rg: "請選擇{1}到{2}項",
+                gte: "請至少選擇{1}項",
+                lte: "請最多選擇{1}項"
             },
             length: {
-                eq: "Please enter {1} characters.",
-                rg: "Please enter a value between {1} and {2} characters long.",
-                gte: "Please enter at least {1} characters.",
-                lte: "Please enter no more than {1} characters.",
+                eq: "請填寫{1}個字符",
+                rg: "請填寫{1}到{2}個字符",
+                gte: "請至少填寫{1}個字符",
+                lte: "請最多填寫{1}個字符",
                 eq_2: "",
                 rg_2: "",
                 gte_2: "",

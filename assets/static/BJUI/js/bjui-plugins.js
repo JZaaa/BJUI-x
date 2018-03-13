@@ -357,7 +357,6 @@
                 if (treeNode.faiconClose) {
                     $('#'+ treeNode.tId +'_ico').find('> i').attr('class', 'fa fa-'+ treeNode.faiconClose)
                 }
-                console.log('11')
                 if (op.onCollapse) {
                     op.onCollapse.toFunc().call(this, event, treeId, treeNode)
                 }
@@ -624,8 +623,8 @@
                 X_afterSelect            : options.confirmSelect,
                 htmlTags                 : htmlTags,
                 cssPath                  : [
-                                                BJUI.PLUGINPATH + 'kindeditor_4.1.10/editor-content.css', 
-                                                BJUI.PLUGINPATH + 'kindeditor_4.1.10/plugins/code/prettify.css'
+                                                BJUI.PLUGINPATH + 'kindeditor/editor-content.css',
+                                                BJUI.PLUGINPATH + 'kindeditor/plugins/code/prettify.css'
                                            ],
                 afterBlur                : function() { this.sync() }
             })
@@ -674,22 +673,6 @@
         $box.find('form[data-toggle="ajaxform"]').each(function() {
             $(this).validator({ignore: ':input'})
             $(this).validator('destroy')
-        })
-
-        /* ========================================================================
-         * @description highCharts
-         * @author 小策一喋 <xvpindex@qq.com>
-         * @Blog http://www.topjui.com
-         * ======================================================================== */
-        var $highcharts = $box.find('[data-toggle="highcharts"]')
-        
-        $highcharts.each(function(){
-            var $element = $(this)
-            var options  = $element.data()
-            
-            $.get(options.url, function(chartData){
-                $element.highcharts(chartData)
-            }, 'json')
         })
 
         /* ========================================================================

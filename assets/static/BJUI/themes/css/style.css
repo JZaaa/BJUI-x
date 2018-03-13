@@ -214,7 +214,7 @@ td[align=right] input{text-align:right;}
 #bjui-accordionmenu > .menu-items > li > a{color: #b8c7ce;}
 #bjui-sidebar{position:absolute; top:0; left:0;bottom: 0; width:230px; overflow:hidden; background:#f7f7f7;}
 #bjui-sidebar-s{position:absolute; top:0; left:-10px; width:4px;}
-#bjui-sidebar > .toggleCollapse{display:block; height:50px; overflow:hidden;line-height: 50px; }
+#bjui-sidebar > .toggleCollapse{display:block; height:50px; overflow:hidden;line-height: 50px; margin: 0}
 #bjui-sidebar > .toggleCollapse h2{margin:0; width:100%; font-size:14px; font-weight:bold; line-height:26px; text-align:center;}
 #bjui-sidebar > .toggleCollapse .lock{position:absolute; top:0; right:0; display:block; width:26px; height:24px; overflow:hidden; text-align:center; cursor:pointer;}
 #bjui-sidebar > .toggleCollapse .lock i{font-size:18px; font-weight:bold; line-height:28px;}
