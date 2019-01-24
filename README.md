@@ -1,7 +1,16 @@
 # BJUI-x
-BJUI 布局修改
+BJUI 布局修改 
 
+[演示](http://121.43.171.70/github/BJUI-x/)
+
+
+# 原版
+*原项目已停止维护* 
 原项目地址[BJUI](http://b-jui.com/)
+
+Fork版本(https://github.com/JZaaa/B-JUI)
+BJUI文档(http://121.43.171.70/B-JUI/)
+
 
 ## 简介
 本项目基于BJUI进行了部分样式修改，并对原BJUI部分插件进行了拓展与bug修复，删除了部分组件
