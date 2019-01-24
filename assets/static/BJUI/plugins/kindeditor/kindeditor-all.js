@@ -4767,7 +4767,7 @@ function _bindNewlineEvent() {
 		}
 		self.cmd.selection();
 		var tagName = getAncestorTagName(self.cmd.range);
-		if (tagName == 'marquee' || tagName == 'select') {
+        if (tagName == 'marquee' || tagName == 'select') {
 			return;
 		}
 		if (!pSkipTagMap[tagName]) {
@@ -5875,7 +5875,7 @@ _plugin('core', function(K) {
 	_each(('selectall,justifyleft,justifycenter,justifyright,justifyfull,insertorderedlist,' +
 		'insertunorderedlist,indent,outdent,subscript,superscript,hr,print,' +
 		'bold,italic,underline,strikethrough,removeformat,unlink').split(','), function(i, name) {
-		if (shortcutKeys[name]) {
+        if (shortcutKeys[name]) {
 			self.afterCreate(function() {
 				_ctrl(this.edit.doc, shortcutKeys[name], function() {
 					self.cmd.selection();
@@ -5884,7 +5884,7 @@ _plugin('core', function(K) {
 			});
 		}
 		self.clickToolbar(name, function() {
-			self.focus().exec(name, null);
+            self.focus().exec(name, null);
 		});
 	});
 	self.afterCreate(function() {
@@ -7431,7 +7431,7 @@ KindEditor.plugin('image', function(K) {
 				left : '-1000px'
 			});
 			tempImg.bind('load', function() {
-				setSize(tempImg.width(), tempImg.height());
+				// setSize(tempImg.width(), tempImg.height());
 				tempImg.remove();
 			});
 			K(document.body).append(tempImg);
@@ -7466,8 +7466,8 @@ KindEditor.plugin('image', function(K) {
 			var img = self.plugin.getSelectedImage();
 			self.plugin.imageDialog({
 				imageUrl : img ? img.attr('data-ke-src') : 'http://',
-				imageWidth : img ? img.width() : '',
-				imageHeight : img ? img.height() : '',
+				imageWidth : img ? img.attr('width') : '',
+				imageHeight : img ? img.attr('height') : '',
 				imageTitle : img ? img.attr('title') : '',
 				imageAlign : img ? img.attr('align') : '',
 				showRemote : allowImageRemote,
