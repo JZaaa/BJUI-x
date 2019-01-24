@@ -8,8 +8,9 @@ BJUI 布局修改
 *原项目已停止维护* 
 原项目地址[BJUI](http://b-jui.com/)
 
-Fork版本(https://github.com/JZaaa/B-JUI)
-BJUI文档(http://121.43.171.70/B-JUI/)
+[Fork版本](https://github.com/JZaaa/B-JUI)
+
+[BJUI文档](http://121.43.171.70/B-JUI/)
 
 
 ## 简介
