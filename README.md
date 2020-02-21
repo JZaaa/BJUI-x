@@ -1,16 +1,14 @@
 # BJUI-x
-BJUI 布局修改 
+BJUI 布局修改
 
-[演示](http://121.43.171.70/github/BJUI-x/)
+[演示](https://jzaaa.github.io/BJUI-x/)
 
 
 # 原版
-*原项目已停止维护* 
+*原项目已停止维护*
 原项目地址[BJUI](http://b-jui.com/)
 
 [Fork版本](https://github.com/JZaaa/B-JUI)
-
-[BJUI文档](http://121.43.171.70/B-JUI/)
 
 
 ## 简介
@@ -23,6 +21,12 @@ BJUI 布局修改
 ## 使用
 请自行搭建服务器，访问index.html即可
 
+## 文档
+- 访问[演示地址](https://jzaaa.github.io/BJUI-x/)
+- 自行搭建服务
+- 访问[Fork版本](https://github.com/JZaaa/B-JUI)，当前文档与[v1.1.5](https://github.com/JZaaa/BJUI/tree/v1.1.5)基本一致，包含了新增功能
+
+
 ## 兼容
 支持IE9+及其他现代浏览器
 移动端不完全支持【本项目仅对首页菜单栏添加简单的移动适配】，具体请自行测试
@@ -30,13 +34,17 @@ BJUI 布局修改
 
 ## 更新
 
+- [日志](https://github.com/JZaaa/BJUI/blob/v1.1.5/CHANGELOG.md),处主题功能外，其他基本一致
+
+-----------
+
 - 修复部分bug
 - 删除部分无用组件与代码
 - 更新bootstrap及相关插件版本为3.3.7
 - 更新nice-validator版本为1.1.3
 - 更新kindeditor版本为4.1.11
 
-***
+----------------
 
 - 主页面结构重构，菜单栏移至左部，当前版本最多支持二级菜单
 - 新增菜单栏移动端适配
