@@ -34,7 +34,7 @@ BJUI 布局修改
 
 ## 更新
 
-- [日志](https://github.com/JZaaa/BJUI/blob/v1.1.5/CHANGELOG.md),处主题功能外，其他基本一致
+- [日志](https://github.com/JZaaa/BJUI/blob/v1.1.5/CHANGELOG.md),除主题功能外，其他基本一致
 
 -----------
 
