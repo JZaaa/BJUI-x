@@ -727,4 +727,6 @@ ul.ztree.zTreeDragUL{position:absolute; margin:0; padding:0; width:auto; height:
 .ztree .diyBtn1{margin-left:2px;}
 .ztree_main *{font-size:14px;}
 
+.text-center .table>thead>tr>th,.text-center.table>thead>tr>th{text-align:center}.bootstrap-select .dropdown-toggle .filter-option{line-height:1.625}.CodeMirror{height:auto!important}.CodeMirror div,.CodeMirror span{font-family:monospace;font-size:13px}.CodeMirror .CodeMirror-lint-marker-error{margin-top:-2px}.CodeMirror.cm-s-rubyblue span.cm-string{color:#F08047}
+
 
