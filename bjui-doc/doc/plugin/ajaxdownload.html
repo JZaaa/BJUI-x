@@ -11,6 +11,8 @@
                 <script type="text/javascript">
                 function doc_filedownload1(a) {
                     $.fileDownload($(a).attr('href'), {
+                        httpMethod: 'get',
+                        data: null,
                         failCallback: function(responseHtml, url) {
                             if (responseHtml.trim().startsWith('{')) responseHtml = responseHtml.toObj()
                             $(a).bjuiajax('ajaxDone', responseHtml)
@@ -18,12 +20,14 @@
                     })
                 }
                 </script>
-                <a href="bjui-doc/Book1.xlsx" onclick="doc_filedownload1(this); return false;">点我下载一个文件</a><br>
+                <a href="Book1.xlsx" onclick="doc_filedownload1(this); return false;">点我下载一个文件</a><br>
                 <p>示例代码：</p>
                 <pre class="brush: js; html-script: true">
                     &lt;script type="text/javascript"&gt;
                         function doc_filedownload1(a) {
                             $.fileDownload($(a).attr('href'), {
+                                httpMethod: 'get',
+                                data: null,
                                 failCallback: function(responseHtml, url) {
                                     if (responseHtml.trim().startsWith('{')) responseHtml = responseHtml.toObj()
                                     $(a).bjuiajax('ajaxDone', responseHtml)
@@ -36,7 +40,7 @@
                 </pre>
             </li>
             <li><span class="label label-default">下载失败：</span>
-                <a href="bjui-doc/ajaxDoneErr.html" onclick="doc_filedownload1(this); return false;">点我下载一个文件</a><br>
+                <a href="ajaxDoneErr.html" onclick="doc_filedownload1(this); return false;">点我下载一个文件</a><br>
                 <p>示例代码：</p>
                 <pre class="brush: js; html-script: true">
                     &lt;script type="text/javascript"&gt;

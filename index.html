@@ -54,8 +54,9 @@
     <script src="./assets/static/BJUI/plugins/other/jquery.autosize.js"></script>
     <script src="./assets/static/BJUI/plugins/uploadify/scripts/jquery.uploadify.min.js"></script>
     <script src="./assets/static/BJUI/plugins/download/jquery.fileDownload.min.js"></script>
+    <script src="./assets/static/BJUI/other/utils.js"></script>
 
-    <script type="text/javascript" src="./assets/js/bjui-x.js"></script>
+  <script type="text/javascript" src="./assets/js/bjui-x.js"></script>
 
     <!-- init -->
     <script type="text/javascript">
@@ -81,7 +82,11 @@
 	            	mask: true
 	          	},
                 debug        : false,    // [可选]调试模式 [true|false，默认false]
-                theme        : 'sky' // 若有Cookie['bjui_theme'],优先选择Cookie['bjui_theme']。皮肤[五种皮肤:default, orange, purple, blue, red, green]
+                theme        : 'sky', // 若有Cookie['bjui_theme'],优先选择Cookie['bjui_theme']。皮肤[五种皮肤:default, orange, purple, blue, red, green]
+                KindEditor: {
+                  uploadJson: undefined,
+                  fileManagerJson: undefined
+                }
             })
 
             // main - menu
@@ -144,6 +149,7 @@
 
     <link type="text/css" rel="stylesheet" href="./assets/static/syntaxhighlighter/syntaxhighlighter-2.1.382/styles/shCore.css"/>
     <link type="text/css" rel="stylesheet" href="./assets/static/syntaxhighlighter/syntaxhighlighter-2.1.382/styles/shThemeEclipse.css"/>
+    <link type="text/css" rel="stylesheet" href="bjui-doc/doc/doc.css"/>
     <script type="text/javascript" src="./assets/static/syntaxhighlighter/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
     <script type="text/javascript">
         $(function(){
@@ -183,7 +189,7 @@
                                     <i class="fa fa-check-square-o"></i> <span>表单元素</span>
                             </a><span class="b"><i class="fa fa-angle-down"></i></span>
                             <ul class="menu-items">
-                                <li><a href="bjui-doc/form-button.html" data-reload="true" data-autorefresh="true" data-reload="true" data-autorefresh="true" data-options="{id:'form-button', fresh:true, faicon:'hand-o-up'}"><i class="fa fa-circle-o"></i>按钮</a></li>    
+                                <li><a href="bjui-doc/form-button.html" data-reload="true" data-autorefresh="true" data-reload="true" data-autorefresh="true" data-options="{id:'form-button', fresh:true, faicon:'hand-o-up'}"><i class="fa fa-circle-o"></i>按钮</a></li>
                                 <li><a href="bjui-doc/form-input.html" data-reload="true" data-autorefresh="true" data-options="{id:'form-input', fresh:true, faicon:'terminal'}"><i class="fa fa-circle-o"></i>文本框</a></li>
                                 <li><a href="bjui-doc/form-select.html" data-reload="true" data-autorefresh="true" data-options="{id:'form-select', fresh:true, faicon:'caret-square-o-down', fresh:true}"><i class="fa fa-circle-o"></i>下拉选择框</a></li>
                                 <li><a href="bjui-doc/form-input.html" data-reload="true" data-autorefresh="true" data-options="{id:'form-input', fresh:true, faicon:'terminal'}"><i class="fa fa-circle-o"></i>文本框</a></li>
@@ -244,6 +250,17 @@
                                   <li><a href="bjui-doc/table-layout.html" data-reload="true" data-autorefresh="true" data-options="{id:'table-layout', fresh:true, faicon:'refresh'}"><i class="fa fa-circle-o"></i>局部刷新1</a></li>
                             </ul>
                         </li>
+
+                      <li class="menu-items-tree">
+                        <a href="#">
+                          <i class="fa fa-fire"></i> <span>新特性</span>
+                        </a><span class="b"><i class="fa fa-angle-down"></i></span>
+                        <ul class="menu-items">
+                          <li><a href="bjui-doc/doc/new/myutil.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-file', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>内置工具</a></li>
+                          <li><a href="bjui-doc/doc/new/util.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-file', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>开发工具推荐</a></li>
+                          <li><a href="bjui-doc/doc/new/recommend.html" data-reload="true" data-autorefresh="true" data-options="{id:'doc-file', fresh:true, faicon:'caret-right'}"><i class="fa fa-circle-o"></i>使用建议</a></li>
+                        </ul>
+                      </li>
 
 
                         <li class="menu-items-tree">

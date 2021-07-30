@@ -4,7 +4,7 @@
 .menu-items-tree > .b { position: absolute; top: 13px; right: 8px; color:#fff;}
 .bjui-pageHeader{border-bottom: 1px solid #EAF1F6;}
 .pageTitle{font-size: 12px;padding: 5px 10px;color: #444;}
-.bjui-pageContent,.bjui-pageContent.tableContent{padding:0 15px;background: #f5f5f5;}
+.bjui-pageContent,.bjui-pageContent.tableContent{padding:0 15px;background: #fff;}
 .pageBox{background: #fff;padding:0 10px 20px;border-top: 2px solid #1BC5EF;}
 .tableHeader{padding:5px;border-bottom: 1px solid #777;margin-bottom: 15px;}
 .btn-fixed{color: #659FBF;border-color: #EAF1F6;}

@@ -4,7 +4,7 @@ function doc_dialog_onLoad($dialog) {
 }
 function doc_dialog_beforeClose($dialog) {
     var code = $dialog.find('#doc-dialog-code').val()
-    
+
     if (code) return true
     $dialog.alertmsg('error', 'beforeClose回调：关闭弹窗前请先填入你的工号。')
     return false
@@ -19,20 +19,20 @@ function doc_dialog_onClose() {
         <blockquote>
             <p>创建一个dialog有以下两种方式：</p>
         </blockquote>
-        
+
         <ul>
             <li>Data属性：DOM添加属性<code>data-toggle="dialog"</code>后，单击触发。<br>
                 <span class="label label-default">DOM示例1：</span>　<a href="bjui-doc/doc/dialog/mydialog.html" data-toggle="dialog" data-id="mydialog1" data-title="我的业务弹窗1">打开dialog</a><br>
                 <pre class="brush: html">
-                    <a href="bjui-doc/mydialog.html" data-toggle="dialog" data-id="mydialog1" data-title="我的业务弹窗1">打开dialog</a>
+                    <a href="mydialog.html" data-toggle="dialog" data-id="mydialog1" data-title="我的业务弹窗1">打开dialog</a>
                 </pre>
                 <span class="label label-default">DOM示例2：</span>　<button type="button" class="btn-green" data-toggle="dialog" data-id="mydialog2" data-url="bjui-doc/doc/dialog/mydialog.html" data-title="我的业务弹窗2">打开dialog</button>
                 <pre class="brush: html">
-                    <button type="button" class="btn-green" data-toggle="dialog" data-id="mydialog2" data-url="bjui-doc/doc/dialog/mydialog.html" data-title="我的业务弹窗2">打开dialog</button>
+                    <button type="button" class="btn-green" data-toggle="dialog" data-id="mydialog2" data-url="mydialog.html" data-title="我的业务弹窗2">打开dialog</button>
                 </pre>
-                <span class="label label-default">DOM示例3(参数集合)：</span>　<button type="button" class="btn-green" data-toggle="dialog" data-options="{id:'mydialog2', url:'bjui-doc/doc/dialog/mydialog.html', title:'我的业务弹窗2(参数集合)'}">打开dialog(参数集合)</button>
+                <span class="label label-default">DOM示例3(参数集合)：</span>　<button type="button" class="btn-green" data-toggle="dialog" data-options="{id:'mydialog2', url:'doc/dialog/mydialog.html', title:'我的业务弹窗2(参数集合)'}">打开dialog(参数集合)</button>
                 <pre class="brush: html">
-                    <button type="button" class="btn-green" data-toggle="dialog" data-options="{id:'mydialog2', url:'bjui-doc/doc/dialog/mydialog.html', title:'我的业务弹窗2(参数集合)'}">打开dialog(参数集合)</button>
+                    <button type="button" class="btn-green" data-toggle="dialog" data-options="{id:'mydialog2', url:'doc/dialog/mydialog.html', title:'我的业务弹窗2(参数集合)'}">打开dialog(参数集合)</button>
                 </pre>
                 <span class="label label-default">其他示例[加载容器中的内容]：</span>　<button type="button" class="btn-green" data-toggle="dialog" data-id="mydialog3" data-target="#doc-dialog-target" data-title="加载容器中的内容">打开dialog</button>
                 <div id="doc-dialog-target" data-noinit="true" class="hide">
@@ -66,7 +66,7 @@ function doc_dialog_onClose() {
                             }
                             function doc_dialog_beforeClose($dialog) {
                                 var code = $dialog.find('#doc-dialog-code').val()
-                                
+
                                 if (code) return true
                                 $dialog.alertmsg('error', 'beforeClose回调：关闭弹窗前请先填入你的工号。')
                                 return false
@@ -89,7 +89,7 @@ function doc_dialog_onClose() {
             <li>jQuery API：<br>
                 <script type="text/javascript">
                     function openMydialog(obj) {
-                        $(obj).dialog({id:'mydialog', url:'bjui-doc/doc/dialog/mydialog.html', title:'我的业务弹窗-jQuery API'});
+                        $(obj).dialog({id:'mydialog', url:'doc/dialog/mydialog.html', title:'我的业务弹窗-jQuery API'});
                     }
                 </script>
                 <span class="label label-default">jQuery示例：</span>　<button type="button" class="btn-default" onclick="openMydialog(this)">打开dialog</button>

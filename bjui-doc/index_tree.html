@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>B-JUI 客户端框架</title>
 <meta name="Keywords" content="B-JUI,Bootstrap,DWZ,jquery,ui,前端,框架,开源,OSC,开源框架,knaan"/>
-<meta name="Description" content="B-JUI, Bootstrap for DWZ富客户端框架，基于DWZ富客户端框架修改。主要针对皮肤，编辑器，表单验证等方面进行了大量修改，引入了Bootstrap，Font Awesome，KindEditor，jquery.validationEngine，iCheck等众多开源项目。交流QQ群：232781006。"/> 
+<meta name="Description" content="B-JUI, Bootstrap for DWZ富客户端框架，基于DWZ富客户端框架修改。主要针对皮肤，编辑器，表单验证等方面进行了大量修改，引入了Bootstrap，Font Awesome，KindEditor，jquery.validationEngine，iCheck等众多开源项目。交流QQ群：232781006。"/>
 <!-- bootstrap - css -->
 <link href="BJUI/themes/css/bootstrap.css" rel="stylesheet">
 <!-- core - css -->
@@ -29,7 +29,7 @@
 <script src="BJUI/js/jquery-1.7.2.min.js"></script>
 <script src="BJUI/js/jquery.cookie.js"></script>
 <!--[if lte IE 9]>
-<script src="BJUI/other/jquery.iframe-transport.js"></script>    
+<script src="BJUI/other/jquery.iframe-transport.js"></script>
 <![endif]-->
 <!-- BJUI.all 分模块压缩版 -->
 <script src="BJUI/js/bjui-all.js"></script>
@@ -94,7 +94,7 @@
 <link href="BJUI/plugins/uploadify/css/uploadify.css" rel="stylesheet">
 <script src="BJUI/plugins/uploadify/scripts/jquery.uploadify.min.js"></script>
 <script src="BJUI/plugins/download/jquery.fileDownload.js"></script>
-<!-- init -->
+  <!-- init -->
 <script type="text/javascript">
 $(function() {
     BJUI.init({
@@ -113,27 +113,32 @@ $(function() {
                          overwriteHomeTab : false //[可选]当打开一个未定义id的navtab时，是否可以覆盖主navtab(我的主页)
                        },
         debug        : true,    // [可选]调试模式 [true|false，默认false]
-        theme        : 'sky' // 若有Cookie['bjui_theme'],优先选择Cookie['bjui_theme']。皮肤[五种皮肤:default, orange, purple, blue, red, green]
+        theme        : 'sky', // 若有Cookie['bjui_theme'],优先选择Cookie['bjui_theme']。皮肤[五种皮肤:default, orange, purple, blue, red, green]
+        // kindEditor插件全局配置
+        KindEditor: {
+          uploadJson: undefined,
+          fileManagerJson: undefined
+        }
     })
-    
+
     // main - menu
     $('#bjui-accordionmenu')
         .collapse()
         .on('hidden.bs.collapse', function(e) {
             $(this).find('> .panel > .panel-heading').each(function() {
                 var $heading = $(this), $a = $heading.find('> h4 > a')
-                
+
                 if ($a.hasClass('collapsed')) $heading.removeClass('active')
             })
         })
         .on('shown.bs.collapse', function (e) {
             $(this).find('> .panel > .panel-heading').each(function() {
                 var $heading = $(this), $a = $heading.find('> h4 > a')
-                
+
                 if (!$a.hasClass('collapsed')) $heading.addClass('active')
             })
         })
-    
+
     $(document).on('click', 'ul.menu-items > li > a', function(e) {
         var $a = $(this), $li = $a.parent(), options = $a.data('options').toObj()
         var onClose = function() {
@@ -143,23 +148,23 @@ $(function() {
             $('#bjui-accordionmenu').find('ul.menu-items > li').removeClass('switch')
             $li.addClass('switch')
         }
-        
+
         $li.addClass('active')
         if (options) {
             options.url      = $a.attr('href')
             options.onClose  = onClose
             options.onSwitch = onSwitch
             if (!options.title) options.title = $a.text()
-            
+
             if (!options.target)
                 $a.navtab(options)
             else
                 $a.dialog(options)
         }
-        
+
         e.preventDefault()
     })
-    
+
     //时钟
     var today = new Date(), time = today.getTime()
     $('#bjui-date').html(today.formatDate('yyyy/MM/dd'))
@@ -172,14 +177,14 @@ $(function() {
 //菜单-事件
 function MainMenuClick(event, treeId, treeNode) {
     event.preventDefault()
-    
+
     if (treeNode.isParent) {
         var zTree = $.fn.zTree.getZTreeObj(treeId)
-        
+
         zTree.expandNode(treeNode, !treeNode.open, false, true, true)
         return
     }
-    
+
     if (treeNode.target && treeNode.target == 'dialog')
         $(event.target).dialog({id:treeNode.tabid, url:treeNode.url, title:treeNode.name})
     else
@@ -440,7 +445,7 @@ $(function(){
         </div>
     </div>
     <footer id="bjui-footer">Copyright &copy; 2013 - 2015　<a href="http://www.cdjinyang.com/" target="_blank">成都锦杨科技</a>　
-        <!--  
+        <!--
         <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252983288'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/stat.php%3Fid%3D1252983288%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
         -->
     </footer>

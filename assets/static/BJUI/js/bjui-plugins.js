@@ -22,6 +22,35 @@
 
     // UI init begin...
 
+    var $boolCheck = $box.find('[data-toggle="boolcheck"]')
+
+    $boolCheck.each(function(i) {
+      var $element = $(this)
+      var name = $element.attr('name')
+      $element.removeAttr('name')
+      var $input
+      if (name) {
+        var value = $element.is(':checked') ? 1 : 0
+        $input = $('<input type="hidden" value="'+value+'" name="'+name+'">').appendTo($element.parent())
+      }
+      $element
+        .iCheck({
+          checkboxClass: 'icheckbox_minimal-purple',
+          radioClass: 'iradio_minimal-purple',
+          increaseArea: '20%' // optional
+        })
+        .on('ifChecked', function() {
+          if ($input) {
+            $input.val(1)
+          }
+        })
+        .on('ifUnchecked', function() {
+          if ($input) {
+            $input.val(0)
+          }
+        })
+    })
+
     /* i-check */
     var $icheck = $box.find('[data-toggle="icheck"]')
 
@@ -641,8 +670,8 @@
         minHeight: options.minHeight || 260,
         autoHeightMode: options.autoHeight || false,
         items: options.items || KindEditor.options.items,
-        uploadJson: options.uploadJson,
-        fileManagerJson: options.fileManagerJson,
+        uploadJson: options.uploadJson || BJUI.KindEditor.uploadJson,
+        fileManagerJson: options.fileManagerJson || BJUI.KindEditor.fileManagerJson,
         allowFileManager: options.allowFileManager || true,
         fillDescAfterUploadImage: options.fillDescAfterUploadImage || true, // 上传图片成功后转到属性页，为false则直接插入图片[设为true方便自定义函数(X_afterSelect)]
         afterUpload: options.afterUpload,
