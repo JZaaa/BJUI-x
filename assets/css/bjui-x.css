@@ -80,6 +80,8 @@ sup { top: -0.4em;font-size: 12px;font-weight: 100; }
 .catalog-tip .layout-icons_hand{position:absolute;margin-top:15px;font-size:2rem;left:50%;margin-left:-13.5px;color:#fff}
 #bjui-leftside{z-index: 30}
 .sidebar-menu span {font-size: 13px;}
+.sidebar-menu .menu-items { background-color: #1c4473 }
+.sidebar-menu>li.switch>a { background-color: #19547b }
 .sidebar-menu .menu-items span{font-size: 12px;}
 .sidebar-menu .menu-items i{font-size: 14px;}
 #bjui-accordionmenu{overflow: auto}
