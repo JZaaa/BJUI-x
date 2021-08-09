@@ -375,13 +375,16 @@
       if (typeof options.onUploadBefore === 'string') {
         options.onUploadBefore = options.onUploadBefore.toFunc()
       }
-      next = options.onUploadBefore(options.formData || {})
+      next = options.onUploadBefore(options.formData || {}, this.$file)
       if (next !== true) {
         options.formData = next
       }
     }
     if (!next) {
-      options.onUploadComplete && options.onUploadComplete(originalFile, xhr.responseText)
+      $element
+        .find('#' + originalFile.id + ' > .info > .up_cancel')
+        .trigger('click.bjui.upload.cancel')
+      options.onUploadComplete && options.onUploadComplete(originalFile, xhr.responseText, this.$file)
       return
     }
 
@@ -420,7 +423,7 @@
           if (upOver) {
             that.queueData.success++
             tools.successQueueItem(originalFile, xhr)
-            options.onUploadComplete && options.onUploadComplete(originalFile, xhr.responseText)
+            options.onUploadComplete && options.onUploadComplete(originalFile, xhr.responseText, that.$file)
           }
         } else {
           that.queueData.error++

@@ -24,7 +24,7 @@ BJUI 布局修改
 ## 文档
 - 访问[演示地址](https://jzaaa.github.io/BJUI-x/)
 - 自行搭建服务
-- 访问[Fork版本](https://github.com/JZaaa/B-JUI) ，当前文档与[1.1.9](https://github.com/JZaaa/BJUI/tree/1.1.9)基本一致，包含了新增功能
+- 访问[Fork版本](https://github.com/JZaaa/B-JUI) ，当前文档与[1.1.10](https://github.com/JZaaa/BJUI/tree/1.1.10)基本一致，包含了新增功能
 
 
 ## 兼容
@@ -34,7 +34,7 @@ BJUI 布局修改
 
 ## 更新
 
-- [查看日志](https://github.com/JZaaa/BJUI/blob/1.1.9/CHANGELOG.md) ,除主题功能外，其他基本一致
+- [查看日志](https://github.com/JZaaa/BJUI/blob/1.1.10/CHANGELOG.md) ,除主题功能外，其他基本一致
 
 
 - 主页面结构重构，菜单栏移至左部，当前版本最多支持二级菜单
