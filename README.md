@@ -1,3 +1,6 @@
+# 建议使用[BJUI](https://github.com/JZaaa/BJUI)，1.3.0+版本添加了左右布局样式
+
+
 # BJUI-x
 BJUI 布局修改
 
